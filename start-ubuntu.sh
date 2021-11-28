@@ -1,3 +1,9 @@
 #!/bin/bash
 
-proot-distro login ubuntu --termux-home --shared-tmp --bind $HOME/opt:/opt
+options="--termux-home --shared-tmp --bind ${HOME}/opt:/opt --bind ${HOME}:/root"
+
+if [ "$1" != '' ]; then
+  options+=" --user $1"
+fi
+
+proot-distro login ubuntu $options
