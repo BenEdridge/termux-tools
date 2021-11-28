@@ -1,4 +1,4 @@
 #!/bin/sh
 
-apache2ctl start
-mysqld&
+apache2ctl start &
+mysqld &
