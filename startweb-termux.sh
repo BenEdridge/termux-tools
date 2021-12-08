@@ -1,4 +1,4 @@
 #!/bin/sh
 
-apache2ctl start &
-mysqld &
+service apache2 start
+service mysql start
