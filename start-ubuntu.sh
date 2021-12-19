@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -v TERMUX_VERSION ]; then
+if [ `uname -o` != "Android" ]; then
   echo "run only in termux"
   exit 1
 fi
