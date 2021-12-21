@@ -11,7 +11,8 @@ if [ -e ~/.xinitrc ]; then
     passwd=`grep "root" $DIST_PATH/etc/passwd`
     shell=${passwd##*:}
     shell_name=${shell##*/}
-    ./start-ubuntu.sh -- $shell -c "cd $HOME; source .${shell_name}rc; . $HOME/.xinitrc" &
+    script_path=`dirname $0`
+    $script_path/start-ubuntu.sh -- $shell -c "cd $HOME; source .${shell_name}rc; . $HOME/.xinitrc" &
   else
     . ~/.xinitrc &
   fi
