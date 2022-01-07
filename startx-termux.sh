@@ -12,7 +12,7 @@ if [ -e ~/.xinitrc ]; then
     shell=${passwd##*:}
     shell_name=${shell##*/}
     script_path=`dirname $0`
-    $script_path/start-ubuntu.sh -- $shell -c "cd $HOME; source .${shell_name}rc; . $HOME/.xinitrc" &
+    $script_path/login-ubuntu.sh -- $shell -c "source $HOME/.${shell_name}rc; . $HOME/.xinitrc" &
   else
     . ~/.xinitrc &
   fi
