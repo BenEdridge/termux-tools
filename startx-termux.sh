@@ -1,18 +1,14 @@
 #!/bin/bash
 
-DIST=ubuntu
-DIST_PATH=$PREFIX/var/lib/proot-distro/installed-rootfs/$DIST
 
 termux-x11 :0 &
 
 if [ -e ~/.xinitrc ]; then
   sleep 1
   if [ `uname -o` == "Android" ]; then
-    passwd=`grep "root" $DIST_PATH/etc/passwd`
-    shell=${passwd##*:}
-    shell_name=${shell##*/}
+    DIST=ubuntu
     script_path=`dirname $0`
-    $script_path/login-ubuntu.sh -- $shell -c "source $HOME/.${shell_name}rc; . $HOME/.xinitrc" &
+    $script_path/exec-proot.sh $DIST ". $HOME/.xinitrc" &
   else
     . ~/.xinitrc &
   fi
