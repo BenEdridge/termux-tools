@@ -5,8 +5,15 @@ DIST=$1
 DIST_PATH=$PREFIX/var/lib/proot-distro/installed-rootfs/$DIST
 CMD=$2
 
-passwd=`grep "^root" $DIST_PATH/etc/passwd`
-shell=${passwd##*:}
+DIST_PASSWD_PATH="$DIST_PATH/etc/passwd"
+if [ -e $DIST_PASSWD_PATH ]
+then
+  passwd=`grep "^root" $DIST_PASSWD_PATH`
+  shell=${passwd##*:}
+else
+  shell="bash"
+fi
+
 shell_name=${shell##*/}
 shell_rcfile=$HOME/.${shell_name}rc
 if [ -e $shell_rcfile ]
