@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PATH=~/git/termux-tool/bin:$PATH
+
 export DISPLAY=:0
 export PULSE_SERVER=tcp:127.0.0.1:4712
 export XDG_RUNTIME_DIR=${TMPDIR}
