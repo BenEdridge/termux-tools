@@ -21,4 +21,4 @@ then
   CMD="source $shell_rcfile; $CMD"
 fi
 
-$SCRIPT_PATH/login-proot.sh $DIST -- $shell -c "$CMD"
+$SCRIPT_PATH/login-proot $DIST -- $shell -c "$CMD"

@@ -8,7 +8,7 @@ if [ -e ~/.xinitrc ]; then
   if [ `uname -o` == "Android" ]; then
     DIST=ubuntu
     script_path=`dirname $0`
-    $script_path/exec-proot.sh $DIST ". $HOME/.xinitrc" &
+    $script_path/exec-proot $DIST ". $HOME/.xinitrc" &
   else
     . ~/.xinitrc &
   fi
