@@ -1,0 +1,4 @@
+#!/bin/bash
+
+asset-deploy --ignore-script "$HOME"
+termux-reload-settings
