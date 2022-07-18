@@ -4,6 +4,6 @@ if [ `uname -o` != "Android" ]; then
   exit 1
 fi
 
-options="--termux-home --shared-tmp --bind ${HOME}:/root --bind /storage"
+options="--shared-tmp --bind /storage"
 
 proot-distro login $options "$@"
