@@ -1,3 +1,4 @@
 #!/bin/bash
 
+pgrep chromium-browser | xargs kill
 proot-exec ubuntu "chromium-browser"
